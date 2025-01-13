@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EL POLLO LOCO</title>
+    <link rel="shortcut icon" href="img_pollo_locco/img/2_character_pepe/1_idle/idle/I-1.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/classes/drawableObject.class.js"></script>
+    <script src="js/classes/movableObject.class.js"></script>
+    <script src="js/classes/statusBarHealth.class.js"></script>
+    <script src="js/classes/statusBarCoins.class.js"></script>
+    <script src="js/classes/statusBarBottle.class.js"></script>
+    <script src="js/classes/statusBarBoss.class.js"></script>
+    <script src="js/classes/cloud.class.js"></script>
+    <script src="js/classes/character.class.js"></script>
+    <script src="js/classes/chicken.class.js"></script>
+    <script src="js/classes/coins.class.js"></script>
+    <script src="js/classes/bottles.class.js"></script>
+    <script src="js/classes/endboss.class.js"></script>
+    <script src="js/classes/world.class.js"></script>
+    <script src="js/classes/throwableObject.class.js"></script>
+    <script src="js/classes/backgroundObject.class.js"></script>
+    <script src="js/classes/keyboard.class.js"></script>
+    <script src="js/classes/level.class.js"></script>
+    <script src="levels/level01.js"></script>
+    <script src="js/classes/end-screen.js"></script>
+    <script src="js/game.js"></script>
+    <style>
+        @font-face {
+            font-family: 'zabars';
+            src: url('fonts/zabars.ttf') format('truetype');
+        }
+    </style>
+</head>
+
+<body onload="init()" style="background-image: url('img_pollo_locco/img/5_background/output-onlinepngtools (1).png');background-repeat: no-repeat;background-position: center;height:100vh;" >
+    <div class="rotate-phone-text d-none" id="rotatePhone">
+        <h1>ROTATE<br>YOUR<br>PHONE</h1>
+    </div>
+    <h1 class="headline">El Pollo Loco</h1>
+    <section class="content" id="fullscreen">
+        
+        <div class="start-screen" id="startScreen" style="background-image: url('img_pollo_locco/img/9_intro_outro_screens/start/startscreen_2.png');background-repeat:no-repeat;background-position: 0,0;background-size:cover;">
+            <div id="startButtons">
+                <div class="buttons cp">
+                    <img onclick="openInfobox()" src="img_pollo_locco/img/icons/icon_info.png" alt="">
+                    <img onclick="playMusic()" id="iconMusic" src="img_pollo_locco/img/icons/pngegg_2.png" alt="">
+                    <img onclick="openFullscreen()" src="img_pollo_locco/img/icons/icon_fullscreen.png" alt="">
+                </div>
+                <h3 onclick="startGame()" class="startButton cp">START</h3>
+            </div>
+        </div>
+
+        <div class="infobox d-none" id="infobox">
+            <div class="close-container cp">
+                <img onclick="closeInfobox()" src="img_pollo_locco/img/icons/close.png" alt="close">
+            </div>
+            <h4>INFO</h4>
+            <div class="key-description">
+                <img src="img_pollo_locco/img/icons/arrow_up.png" alt="">
+                <p>JUMP</p>
+            </div>
+            <div class="key-description">
+                <div class="d-flex">
+                    <img src="img_pollo_locco/img/icons/arrow_left.png" alt="">
+                </div>
+                <p>MOVE LEFT</p>
+            </div>
+            <div class="key-description">
+                <div class="d-flex">
+                    <img src="img_pollo_locco/img/icons/arrow_right.png" alt="">
+                </div>
+                <p>MOVE RIGHT</p>
+            </div>
+            <div class="key-description">
+                <img src="img_pollo_locco/img/icons/space.png" alt="">
+                <p>THROW</p>
+            </div>
+            <a href="impressum.html" class="impressum" target="_blank" rel="noopener noreferrer">IMPRESSUM</a>
+        </div>
+        <div id="playButtons">
+            <div class="buttonsLeft">
+                <img src="img_pollo_locco/img/icons/arrow_left.png" id="btnLeft" alt="left">
+                <img src="img_pollo_locco/img/icons/arrow_right.png" id="btnRight" alt="right">
+            </div>
+            <div class="buttonsRight">
+                <img src="img_pollo_locco/img/icons/arrow_up.png" id="btnUp" alt="jump">
+                <img src="img_pollo_locco/img/icons/space.png" id="btnSpace" alt="throw">
+            </div>
+        </div>
+        <div class="end-screen d-none" id="endScreen">
+            
+            <div id="collectedCoins"></div>
+            <img src="img_pollo_locco/img/9_intro_outro_screens/win/won_2.png" class="d-none" alt="youWin" id="youWin">
+            <div class="d-none" id="endButtons">
+                <h3 onclick="goToHome()" class="cp">HOME</h3>
+                <h3 onclick="startGame()" class="cp">PLAY AGAIN</h3>
+            </div>
+            
+            <img src="img_pollo_locco/img/9_intro_outro_screens/game_over/oh no you lost!.png" class="d-none" alt="gameOver"
+                id="gameOver">
+            <div class="d-none" id="endButtons">
+                <h3 onclick="goToHome()" class="cp">HOME</h3>
+                <h3 onclick="startGame()" class="cp">PLAY AGAIN</h3>
+            </div>
+        </div>
+        <div id="buttonsSettings" class="buttonsSettings d-none">
+            <div class="buttons-in-game cp">
+                <img onclick="openInfobox()" src="img_pollo_locco/img/icons/icon_info.png" alt="">
+                <img onclick="playMusicInGame()" id="iconMusicInGame" src="img_pollo_locco/img/icons/pngegg_2.png" alt="">
+                <img onclick="openFullscreen()" src="img_pollo_locco/img/icons/icon_fullscreen.png" alt="">
+            </div>
+        </div>
+
+        <canvas id="canvas" width="720" height="480"></canvas>
+    </section>
+
+</body>
+
+</html>
