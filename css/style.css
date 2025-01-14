@@ -178,7 +178,7 @@
 
 @media only screen and (max-width: 950px){
     #gameOver {
-        margin-top:0vh !important;
+        margin-top:-10vh !important;
         height:85vh !important;
     }
 
@@ -190,10 +190,15 @@
 @media only screen and (max-width: 900px){
     #gameOver {
         height:85vh !important;
+        margin-top:-10vh !important;
     }
 
     #endButtons {
         bottom:8vh !important;
+    }
+
+    .start-screen {
+        margin-top:-5vh;
     }
 }
 
@@ -202,7 +207,9 @@
         margin-top:-10vh !important;
         height:85vh !important;
     }
-
+    .start-screen {
+        margin-top:-5vh;
+    }
 }
 
 @media only screen and (max-width: 1050px) {
@@ -251,7 +258,7 @@
     }
 
     #playButtons {
-        width:60% !important;
+        width:50% !important;
         margin-left:-5vw;
         bottom:9vh !important;
     }
