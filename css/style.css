@@ -162,6 +162,48 @@
     object-fit: cover;
 }
 
+@media only screen and (max-width: 800px){
+    #gameOver {
+        margin-top:-10vh !important;
+        height:85vh !important;
+    }
+
+}
+
+@media only screen and (max-width: 950px){
+    #gameOver {
+        margin-top:0vh !important;
+        height:85vh !important;
+    }
+
+    #endButtons {
+        bottom:10vh !important;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    #gameOver {
+        margin-top:-31vh !important;
+        height:85vh !important;
+    }
+
+    #endButtons {
+        bottom:30vh !important;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    #gameOver {
+        margin-top:-10vh !important;
+        height:85vh !important;
+    }
+
+    #endButtons {
+        bottom:12vh !important;
+    }
+
+}
+
 @media only screen and (max-width: 1050px) {
     body {
         background-image: none;
@@ -176,11 +218,13 @@
 
     #gameOver {
         height: 70vh;
-        margin-top: -32vh;
+        
+        width: 80vw;
+        margin-top: -1vh;
     }
 
     #endButtons {
-        bottom:35vh;
+        bottom:9vh;
     }
 
     .content {
@@ -198,12 +242,6 @@
     .start-screen {
         min-width: 100%;
         min-height: 100%;
-    }
-
-    canvas {
-        height: 73vh;
-        width: 80vw;
-        outline: none;
     }
 
     h1 {

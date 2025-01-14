@@ -174,27 +174,71 @@ class MovableObject extends DrawableObject {
      * Handles the death sequence for an enemy, including playing the death animation and sound.
      * Repeats the animation until the game ends or the death timer expires.
      */
-    enemyIsDeath() {
-        let animationIntervall = setInterval(() => {
-            if (world.gameEnd == true) {
-                clearInterval(animationIntervall);
-            }
-            
-            if (!this.active) {
-                this.loadImage(this.IMAGE_DEAD);
-                if (!this.deathTimer) {
-                    this.deathTimer = setTimeout(() => {
-                        this.active = false;
-                        this.deathTimer = null;
-                    }, 5000);
-                }
-                if (!this.soundPlayed && soundOn) {
-                    this.dead_sound.play();
-                    this.soundPlayed = true;
-                }
-            } else {
-                this.playAnimation(this.IMAGES_WALKING);
-            }
-        }, 120);
+/**
+ * Handles the death sequence for an enemy, including playing the death animation and sound.
+ * Ensures the animation and sound are triggered only once, and the interval is cleared appropriately.
+ */
+enemyIsDeath() {
+    let animationInterval = setInterval(() => {
+        if (this.shouldStopAnimation(animationInterval)) return;
+        this.handleDeathSequence(animationInterval);
+    }, 120);
+}
+
+/**
+ * Determines whether the animation should stop and clears the interval if necessary.
+ * @param {number} animationInterval - The ID of the setInterval.
+ * @returns {boolean} - True if the animation should stop, false otherwise.
+ */
+shouldStopAnimation(animationInterval) {
+    if (world.gameEnd === true) {
+        clearInterval(animationInterval);
+        return true;
     }
+    return false;
+}
+
+/**
+ * Handles the death sequence for the enemy, including animation and sound.
+ * @param {number} animationInterval - The ID of the setInterval.
+ */
+handleDeathSequence(animationInterval) {
+    if (!this.active) {
+        this.handleDeathAnimation(animationInterval);
+        this.playDeathSound();
+    } else {
+        this.playAnimation(this.IMAGES_WALKING);
+    }
+}
+
+/**
+ * Handles the death animation and ensures it runs only once.
+ * @param {number} animationInterval - The ID of the setInterval.
+ */
+handleDeathAnimation(animationInterval) {
+    if (!this.imageLoaded) {
+        this.loadImage(this.IMAGE_DEAD);
+        this.imageLoaded = true;
+    }
+
+    if (!this.deathTimer) {
+        this.deathTimer = setTimeout(() => {
+            this.active = false;
+            this.deathTimer = null;
+            clearInterval(animationInterval);
+        }, 5000);
+    }
+}
+
+/**
+ * Plays the death sound, ensuring it is played only once.
+ */
+playDeathSound() {
+    if (!this.soundPlayed && soundOn) {
+        this.dead_sound.play();
+        this.soundPlayed = true;
+    }
+}
+
+
 }
