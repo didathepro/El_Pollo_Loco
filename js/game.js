@@ -64,6 +64,7 @@ function checkOrientationTablet() {
  * and removing unnecessary UI elements.
  */
 function startGame() {
+    document.getElementById('playButtons').classList.remove('d-none');
     initLevel1();
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);

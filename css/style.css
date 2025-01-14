@@ -18,8 +18,12 @@
 
 @media only screen and (max-height: 480px) {
     canvas {
-        height: 100vh;
+        height: 84vh !important;
         outline: none;
+    }
+
+    #playButtons {
+        bottom:-3vh !important;
     }
 
     h1 {
@@ -36,7 +40,7 @@
     width: 300px;
     position: absolute;
     z-index: 1000;
-    bottom:20vh;
+    bottom:10vh;
     padding: 16px;
     background-color: lightgray;
     border: 4px solid rgba(0, 0, 0, 0.7);
@@ -162,6 +166,29 @@
     body {
         background-image: none;
         background-color: black;
+        overflow-y:hidden;
+    }
+
+    .infobox {
+        bottom:12%;
+        width:28vw;
+    }
+
+    #gameOver {
+        height: 70vh;
+        margin-top: -32vh;
+    }
+
+    #endButtons {
+        bottom:35vh;
+    }
+
+    .content {
+        align-items:start !important;
+    }
+
+    .key-description p {
+        font-size:16px;
     }
 
     .headline {
@@ -174,12 +201,22 @@
     }
 
     canvas {
-        width: 100%;
+        height: 73vh;
+        width: 80vw;
         outline: none;
     }
 
     h1 {
         font-size: smaller;
+    }
+
+    #playButtons {
+        width:60% !important;
+        margin-left:-5vw;
+    }
+    #playButtons img {
+        height:25px !important;
+        width:25px !important;
     }
 }
 
@@ -294,7 +331,7 @@ p {
 #playButtons {
     position: fixed;
     width: 85%;
-    bottom: 6vh;
+    bottom: 3vh;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;

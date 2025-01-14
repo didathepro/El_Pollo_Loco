@@ -104,6 +104,7 @@ class World {
                 enemy.isDeath();
                 enemy.active = false;
                 this.removeDeadEnemy(enemy);
+                this.character.speedY = 10;
             }
         }
     }
