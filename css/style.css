@@ -34,6 +34,9 @@
         min-width: 100%;
         min-height: 100%;
     }
+    #canvas {
+        margin-top:-5vh;
+    }
 }
 
 .infobox {
@@ -186,12 +189,11 @@
 
 @media only screen and (max-width: 900px){
     #gameOver {
-        margin-top:-31vh !important;
         height:85vh !important;
     }
 
     #endButtons {
-        bottom:30vh !important;
+        bottom:8vh !important;
     }
 }
 
@@ -199,10 +201,6 @@
     #gameOver {
         margin-top:-10vh !important;
         height:85vh !important;
-    }
-
-    #endButtons {
-        bottom:12vh !important;
     }
 
 }
@@ -232,6 +230,7 @@
 
     .content {
         align-items:start !important;
+        margin-top:14vh;
     }
 
     .key-description p {
@@ -254,6 +253,7 @@
     #playButtons {
         width:60% !important;
         margin-left:-5vw;
+        bottom:9vh !important;
     }
     #playButtons img {
         height:25px !important;
@@ -349,6 +349,7 @@ p {
 
 #canvas {
     z-index: 1;
+    max-width:100%;
 }
 
 .rotate-phone-text {
@@ -370,7 +371,7 @@ p {
 
 #playButtons {
     position: fixed;
-    width: 85%;
+    width: 48vw;
     bottom: 3vh;
     display: flex;
     align-items: flex-end;
