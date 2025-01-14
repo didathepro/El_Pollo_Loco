@@ -239,6 +239,4 @@ playDeathSound() {
         this.soundPlayed = true;
     }
 }
-
-
 }

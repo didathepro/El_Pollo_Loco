@@ -121,32 +121,70 @@ class Character extends MovableObject {
         }, 1000 / 35);
     }
 
-    /**
-     * Updates the character's status and triggers appropriate animations.
-     */
-    characterStatus() {
-        let animationIntervall = setInterval(() => {
-            if (world.gameEnd) {
-                clearInterval(animationIntervall);
-            }
-            if (this.isDeath()) {
-                this.playAnimation(this.IMAGES_DEAD);
-                world.gameEnd = true;
-                world.gameLost = true;
-                document.getElementById('endScreen').classList.remove('d-none');
-            } else if (this.isHurt()) {
-                this.handleHurt();
-            } else if (this.isAboveGround()) {
-                this.playAnimation(this.IMAGES_JUMPING);
-                this.clearSleepTimer();
-            } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                this.playAnimation(this.IMAGES_WALKING);
-                this.clearSleepTimer();
-            } else {
-                this.characterSleep();
-            }
-        }, 100);
+/**
+ * Updates the character's status and triggers appropriate animations.
+ */
+characterStatus() {
+    let animationInterval = setInterval(() => {
+        if (world.gameEnd) {
+            clearInterval(animationInterval);
+        } else {
+            this.updateCharacterState(animationInterval);
+        }
+    }, 100);
+}
+
+/**
+ * Determines the character's state and triggers corresponding animations.
+ */
+updateCharacterState(animationInterval) {
+    if (this.isDeath()) {
+        this.handleDeath(animationInterval);
+    } else if (this.isHurt()) {
+        this.handleHurt();
+    } else if (this.isAboveGround()) {
+        this.handleJumping();
+    } else if (this.isMoving()) {
+        this.handleWalking();
+    } else {
+        this.characterSleep();
     }
+}
+
+/**
+ * Handles the character's death.
+ */
+handleDeath(animationInterval) {
+    this.playAnimation(this.IMAGES_DEAD);
+    world.gameEnd = true;
+    world.gameLost = true;
+    document.getElementById('endScreen').classList.remove('d-none');
+    clearInterval(animationInterval);
+}
+
+/**
+ * Handles the character's jumping state.
+ */
+handleJumping() {
+    this.playAnimation(this.IMAGES_JUMPING);
+    this.clearSleepTimer();
+}
+
+/**
+ * Handles the character's walking state.
+ */
+handleWalking() {
+    this.playAnimation(this.IMAGES_WALKING);
+    this.clearSleepTimer();
+}
+
+/**
+ * Checks if the character is moving.
+ */
+isMoving() {
+    return this.world.keyboard.RIGHT || this.world.keyboard.LEFT;
+}
+
 
     /**
      * Moves the character to the right if the right arrow key is pressed.

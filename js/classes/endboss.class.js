@@ -64,38 +64,61 @@ class Endboss extends MovableObject {
         this.animation();
     }
 
-    /**
-     * Manages the Endboss's animation, including spawning, movement, and interactions.
-     */
-    animation() {
-        let i = 0;
-        let spawningFinished = false;
-        let animationInterval = setInterval(() => {
-            if (world.gameEnd) {
-                clearInterval(animationInterval);
-                return;
-            }
-            if (!spawningFinished && this.hadFirstContact) {
-                if (i < this.IMAGES_SPAWNING.length * 3) {
-                    this.playAnimation(this.IMAGES_SPAWNING);
-                    if (i === 0 && soundOn) {
-                        this.endboss_join_sound.play();
-                    }
-                    i++;
-                } else {
-                    spawningFinished = true;
-                }
-            } else if (this.hadFirstContact) {
-                this.endbossMove();
-            }
-            this.handleDeath();
-            this.handleHurt();
-            if (world.character.x > 3500 && !this.hadFirstContact) {
-                i = 0;
-                this.hadFirstContact = true;
-            }
-        }, 100);
+/**
+ * Manages the Endboss's animation, including spawning, movement, and interactions.
+ */
+animation() {
+    let i = 0;
+    let spawningFinished = false;
+    let animationInterval = setInterval(() => {
+        if (world.gameEnd) {
+            clearInterval(animationInterval);
+        } else {
+            this.updateEndbossState(animationInterval, i, spawningFinished);
+        }
+    }, 100);
+}
+
+/**
+ * Updates the Endboss state based on game progress.
+ */
+updateEndbossState(animationInterval, i, spawningFinished) {
+    if (!spawningFinished && this.hadFirstContact) {
+        spawningFinished = this.handleSpawning(i);
+    } else if (this.hadFirstContact) {
+        this.endbossMove();
     }
+    this.handleDeath();
+    this.handleHurt();
+    this.checkFirstContact(i);
+}
+
+/**
+ * Handles the spawning animation of the Endboss.
+ */
+handleSpawning(i) {
+    if (i < this.IMAGES_SPAWNING.length * 3) {
+        this.playAnimation(this.IMAGES_SPAWNING);
+        if (i === 0 && soundOn) {
+            this.endboss_join_sound.play();
+        }
+        i++;
+        return false;
+    } else {
+        return true;
+    }
+}
+
+/**
+ * Checks and triggers the first contact logic with the character.
+ */
+checkFirstContact(i) {
+    if (world.character.x > 3500 && !this.hadFirstContact) {
+        i = 0;
+        this.hadFirstContact = true;
+    }
+}
+
 
     /**
      * Moves the Endboss back and forth between specified boundaries.
