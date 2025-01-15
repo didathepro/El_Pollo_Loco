@@ -13,6 +13,7 @@ class DrawableObject {
     img;
     imageCache = {};
     currentImage = 0;
+    percentage = 100; // Default percentage for resolveImageIndex
 
     /**
      * Loads an image from the specified path.
@@ -47,36 +48,15 @@ class DrawableObject {
     }
 
     /**
-     * Draws a border around the drawable object for debugging purposes.
-     * 
-     * @param {CanvasRenderingContext2D} ctx - The canvas rendering context to draw on.
+     * Determines the appropriate image index based on the current health percentage.
+     * @returns {number} - The index of the image to display.
      */
-    drawBorder(ctx) {
-        if (this.objects()) {
-            ctx.beginPath();
-            ctx.lineWidth = '5';
-            ctx.strokeStyle = 'red';
-            ctx.rect(
-                this.x + this.offset.left,
-                this.y + this.offset.top,
-                this.width - (this.offset.left + this.offset.right),
-                this.height - (this.offset.top + this.offset.bottom)
-            );
-            ctx.stroke();
-        }
-    }
-
-    /**
-     * Checks if the object is an instance of one of the drawable object subclasses.
-     * 
-     * @returns {boolean} - Returns true if the object is an instance of a drawable subclass, otherwise false.
-     */
-    objects() {
-        return this instanceof Character ||
-               this instanceof Chicken ||
-               this instanceof Coin ||
-               this instanceof Bottle ||
-               this instanceof ThrowableObject ||
-               this instanceof Endboss;
+    resolveImageIndex() {
+        if (this.percentage === 100) return 5;
+        if (this.percentage > 79) return 4;
+        if (this.percentage > 59) return 3;
+        if (this.percentage > 39) return 2;
+        if (this.percentage > 19) return 1;
+        return 0;
     }
 }

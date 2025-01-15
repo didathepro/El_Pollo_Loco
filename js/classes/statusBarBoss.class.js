@@ -29,17 +29,4 @@ class StatusBarEndboss extends DrawableObject {
         let path = this.IMAGES_LIFEBAR[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
-
-    /**
-     * Determines the appropriate image index based on the current health percentage.
-     * @returns {number} - The index of the image to display.
-     */
-    resolveImageIndex() {
-        if (this.percentage === 100) return 5;
-        if (this.percentage > 79) return 4;
-        if (this.percentage > 59) return 3;
-        if (this.percentage > 39) return 2;
-        if (this.percentage > 19) return 1;
-        return 0;
-    }
 }
