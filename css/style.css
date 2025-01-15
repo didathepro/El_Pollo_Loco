@@ -202,6 +202,12 @@
     }
 }
 
+@media only screen and (min-width:983px){
+    #playButtons {
+        display:none !important;
+    }
+}
+
 @media only screen and (max-width: 700px){
     #gameOver {
         margin-top:-10vh !important;
@@ -260,7 +266,7 @@
     #playButtons {
         width:50% !important;
         margin-left:-5vw;
-        bottom:9vh !important;
+        bottom:1vh !important;
     }
     #playButtons img {
         height:25px !important;

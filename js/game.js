@@ -32,6 +32,7 @@ function checkOrientation() {
         document.getElementById('playButtons').classList.add('d-none');
     } else if (orientation === 90 || orientation === -90 && gameStart) {
         rotate = true;
+        document.getElementById('playButtons').classList.remove('d-none');
         document.getElementById('rotatePhone').classList.add('d-none');
     }
 }
@@ -64,7 +65,6 @@ function checkOrientationTablet() {
  * and removing unnecessary UI elements.
  */
 function startGame() {
-    document.getElementById('playButtons').classList.remove('d-none');
     initLevel1();
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
