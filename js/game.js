@@ -25,8 +25,9 @@ function init() {
  * Shows or hides elements like "rotatePhone" and "playButtons" accordingly.
  */
 function checkOrientation() {
+    const windowHeight = window.innerHeight;
     const orientation = window.orientation;
-    if (orientation === 0 || orientation === 180) {
+    if (orientation === 0 || orientation === 180 && windowHeight < 1000) {
         rotate = false;
         document.getElementById('rotatePhone').classList.remove('d-none');
         document.getElementById('playButtons').classList.add('d-none');
@@ -45,7 +46,7 @@ function checkOrientation() {
 function checkOrientationTablet() {
     window.matchMedia("(orientation: portrait)").addEventListener("change", e => {
         const portrait = e.matches;
-        if (portrait) {
+        if (portrait && window.innerHeight < 1000) {
             rotate = false;
             document.getElementById('rotatePhone').classList.remove('d-none');
             document.getElementById('playButtons').classList.add('d-none');

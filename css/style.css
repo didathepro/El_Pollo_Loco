@@ -198,15 +198,37 @@
     }
 
     .start-screen {
-        margin-top:-5vh;
+        margin-top:15vh;
     }
+
 }
 
-@media only screen and (min-width:983px){
-    #playButtons {
-        display:none !important;
+@media only screen and (max-width: 1024px){
+    
+    #canvas {
+        width:100vw !important;
+        height:100vh !important;
+        margin-top:-5vh !important;
     }
+
+    .FSIcon {
+        display:none;
+    }
+
+    .content {
+        width:100vw !important;
+        height: 100vh !important;
+        margin-top:5vh !important;
+    }
+
+    .start-screen {
+        margin-top:-5vh;
+    }
+
 }
+
+
+
 
 @media only screen and (max-width:983px){
     #playButtons {
