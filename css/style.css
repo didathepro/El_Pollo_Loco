@@ -203,7 +203,14 @@
 
 }
 
-@media only screen and (max-width: 1024px){
+@media only screen and (min-width: 1367px){
+    #playButtons {
+        display: none !important;
+    }
+}
+
+
+@media only screen and (max-width: 1367px){
     
     #canvas {
         width:100vw !important;
@@ -218,17 +225,57 @@
     .content {
         width:100vw !important;
         height: 100vh !important;
-        margin-top:5vh !important;
+        margin-top:-10vh !important;
     }
 
     .start-screen {
         margin-top:-5vh;
+        background-position: 50% 50% !important;
+        max-width:100% !important;
+        height:auto !important;
     }
 
 }
 
+@media only screen and (max-width:1181px){
+    .content {
+        width:100vw !important;
+        height: 100vh !important;
+        margin-top:-14vh !important;
+    }
+}
 
+@media only screen and (max-width:769px){
+    .content {
+        width:100vw !important;
+        height: 100vh !important;
+        margin-top:5vh !important;
+    }
+}
 
+@media only screen and (max-width:897px){
+    .content {
+        width:100vw !important;
+        height: 100vh !important;
+        margin-top:5vh !important;
+    }
+}
+
+@media only screen and (max-width:933px){
+    .content {
+        width:100vw !important;
+        height: 100vh !important;
+        margin-top:5vh !important;
+    }
+}
+
+@media only screen and (max-width:1025px){
+    .content {
+        width:100vw !important;
+        height: 100vh !important;
+        margin-top:5vh !important;
+    }
+}
 
 @media only screen and (max-width:983px){
     #playButtons {

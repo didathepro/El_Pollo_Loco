@@ -19,6 +19,11 @@ function init() {
     touchFunction();
 }
 
+function checkDeviceMode() {
+    const isMobile = window.innerWidth < 768; // Adjust the threshold as needed
+    return isMobile;
+}
+
 /**
  * Handles screen orientation using `window.orientation`.
  * Updates UI based on portrait (0 or 180) or landscape (90 or -90) mode.
@@ -27,7 +32,7 @@ function init() {
 function checkOrientation() {
     const windowHeight = window.innerHeight;
     const orientation = window.orientation;
-    if (orientation === 0 || orientation === 180 && windowHeight < 1000) {
+    if (orientation === 0 || orientation === 180 && windowHeight < 1000 && !checkDeviceMode()) {
         rotate = false;
         document.getElementById('rotatePhone').classList.remove('d-none');
         document.getElementById('playButtons').classList.add('d-none');
@@ -38,7 +43,6 @@ function checkOrientation() {
     }
 }
 
-
 /**
  * Handles orientation changes using `window.matchMedia`.
  * Listens for portrait mode and updates the UI by showing or hiding "rotatePhone" and "playButtons".
@@ -46,7 +50,7 @@ function checkOrientation() {
 function checkOrientationTablet() {
     window.matchMedia("(orientation: portrait)").addEventListener("change", e => {
         const portrait = e.matches;
-        if (portrait && window.innerHeight < 1000) {
+        if (portrait && window.innerHeight < 1000 && checkDeviceMode()) {
             rotate = false;
             document.getElementById('rotatePhone').classList.remove('d-none');
             document.getElementById('playButtons').classList.add('d-none');
