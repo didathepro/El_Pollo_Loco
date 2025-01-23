@@ -34,9 +34,6 @@
         min-width: 100%;
         min-height: 100%;
     }
-    #canvas {
-        margin-top:-5vh;
-    }
 }
 
 .infobox {
@@ -160,7 +157,6 @@
     position: absolute;
     z-index: 101;
     max-height: 100vh;
-    
     object-fit: cover;
 }
 
@@ -196,99 +192,101 @@
         bottom:8vh !important;
     }
 
-    .start-screen {
-        margin-top:15vh;
-    }
-
 }
 
-@media only screen and (min-width: 1367px){
+
+@media (pointer:coarse){
     #playButtons {
-        display: none !important;
+        display:flex !important;
     }
 }
 
 
 @media only screen and (max-width: 1367px){
     
-    #canvas {
-        width:100vw !important;
-        height:100vh !important;
-        margin-top:-5vh !important;
-    }
 
-    .FSIcon {
-        display:none;
-    }
 
-    .content {
-        width:100vw !important;
-        height: 100vh !important;
-        margin-top:-10vh !important;
-    }
-
-    .start-screen {
-        margin-top:-5vh;
-        background-position: 50% 50% !important;
-        max-width:100% !important;
-        height:auto !important;
+    #playButtons {
+        gap:16vw !important;
+        max-width: 22vw;
+        margin-right:32vw !important;
+        margin-bottom:18vh;
     }
 
 }
 
 @media only screen and (max-width:1181px){
-    .content {
-        width:100vw !important;
-        height: 100vh !important;
-        margin-top:-14vh !important;
+    #playButtons {
+        gap:20vw !important;
+        max-width: 26vw;
+        margin-right:32vw !important;
+        margin-bottom:17vh;
     }
+
+
 }
 
 @media only screen and (max-width:769px){
-    .content {
-        width:100vw !important;
-        height: 100vh !important;
-        margin-top:5vh !important;
+
+    #playButtons img {
+        width:30vw !important;
+        height:25vh !important;
     }
 }
 
 @media only screen and (max-width:897px){
-    .content {
-        width:100vw !important;
-        height: 100vh !important;
-        margin-top:5vh !important;
+
+    #playButtons {
+        gap:20vw !important;
+        max-width: 26vw !important;
+        margin-right:32vw !important;
+        margin-bottom:-35px !important;
     }
 }
 
 @media only screen and (max-width:933px){
-    .content {
-        width:100vw !important;
-        height: 100vh !important;
-        margin-top:5vh !important;
+
+
+    #playButtons {
+        gap:20vw !important;
+        max-width: 22vw;
+        margin-right:32vw !important;
+    }
+
+
+    #gameOver {
+        margin-top:2vh !important;
+        width:59vw !important;
+        height:88vh !important;
+    }
+    .buttons-in-game {
+        margin-top:3vh;
     }
 }
 
 @media only screen and (max-width:1025px){
-    .content {
-        width:100vw !important;
-        height: 100vh !important;
-        margin-top:5vh !important;
-    }
-}
 
-@media only screen and (max-width:983px){
     #playButtons {
-        display:flex;
+        gap:20vw !important;
+        max-width: 22vw;
+        margin-right:32vw !important;
+        margin-bottom:16vh;
     }
 }
 
 @media only screen and (max-width: 700px){
     #gameOver {
-        margin-top:-10vh !important;
-        height:85vh !important;
+        margin-top:0vh !important;
+        height:84vh !important;
+        width:71vw !important;
     }
-    .start-screen {
-        margin-top:-5vh;
+
+    #playButtons {
+        max-width:30vw;
+        margin-bottom:-10vh !important ;
+    }
+    .buttons-in-game {
+        margin-top:2vh;
     }
 }
 
@@ -304,19 +302,14 @@
         width:28vw;
     }
 
-    #gameOver {
-        height: 70vh;
-        
-        width: 80vw;
-        margin-top: -1vh;
-    }
+
 
     #endButtons {
         bottom:9vh;
     }
 
     .content {
-        align-items:start !important;
+        
         margin-top:14vh;
     }
 
@@ -328,10 +321,6 @@
         display: none;
     }
 
-    .start-screen {
-        min-width: 100%;
-        min-height: 100%;
-    }
 
     h1 {
         font-size: smaller;
@@ -459,16 +448,18 @@ p {
 #playButtons {
     position: fixed;
     width: 48vw;
-    bottom: 3vh;
-    display: flex;
+    bottom: 5vh !important;
+    display: none;
     align-items: flex-end;
     justify-content: space-between;
     z-index: 100;
+    gap:28vw;
+    margin-right:23vw;
 }
 
 #playButtons img {
-    width: 40px;
-    height: 40px;
+    width: 5vw !important;
+    height: 5vh !important;
     border: 2px solid #ffaf01;
     border-radius: 45px;
     background-color: lightgray;
