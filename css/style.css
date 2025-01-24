@@ -407,9 +407,26 @@ p {
     font-size: 16px;
     color: black;
     text-decoration: none;
+    position:absolute;
+    bottom:3vh;
+    right:3vh;
 }
 
 .impressum:hover {
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.impressum2 {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    position:absolute;
+    top:42vh;
+    right:3vh;
+}
+
+.impressum2:hover {
     font-size: 18px;
     transition: 0.3s;
 }

@@ -1,0 +1,90 @@
+/* General styles */
+body {
+    font-family: zabars, Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 60px;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #dbdbdb;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(1, 1, 1, 0.9);
+}
+
+header {
+    margin: 20px auto;
+    max-width:800px;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+}
+
+/* Paragraph styles */
+p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+p strong {
+    color: #2c3e50;
+}
+
+/* Links */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Address and contact styles */
+address {
+    font-style: normal;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Highlight boxes for sections */
+section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-left: 4px solid #3498db;
+    background: #f2f9ff;
+    border-radius: 4px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
