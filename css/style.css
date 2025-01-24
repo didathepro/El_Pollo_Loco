@@ -199,6 +199,14 @@
     #playButtons {
         display:flex !important;
     }
+
+    .impressum2 {
+        display:none !important;
+    }
+
+    .impressum3 {
+        display:flex !important;
+    }
 }
 
 
@@ -243,6 +251,13 @@
         margin-bottom:-35px !important;
     }
 }
+
+@media only screen and (max-width:933px) and (min-width:931px){
+    #playButtons {
+        margin-bottom:-8vh !important;
+    }
+}
+
 
 @media only screen and (max-width:933px){
 
@@ -427,6 +442,19 @@ p {
 }
 
 .impressum2:hover {
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.impressum3 {
+    display:none;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    margin-left:2vh;
+}
+
+.impressum3:hover {
     font-size: 18px;
     transition: 0.3s;
 }
