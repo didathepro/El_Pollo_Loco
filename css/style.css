@@ -207,6 +207,10 @@
     .impressum3 {
         display:flex !important;
     }
+
+    .content {
+        margin-top:4vh !important;
+    }
 }
 
 
@@ -248,13 +252,13 @@
         gap:20vw !important;
         max-width: 26vw !important;
         margin-right:32vw !important;
-        margin-bottom:-35px !important;
+        margin-bottom:0px !important;
     }
 }
 
 @media only screen and (max-width:933px) and (min-width:931px){
     #playButtons {
-        margin-bottom:-8vh !important;
+        margin-bottom:0vh !important;
     }
 }
 
@@ -298,7 +302,7 @@
 
     #playButtons {
         max-width:30vw;
-        margin-bottom:-10vh !important ;
+        margin-bottom:0vh !important;
     }
     .buttons-in-game {
         margin-top:2vh;
